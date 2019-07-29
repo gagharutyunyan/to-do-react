@@ -1,0 +1,72 @@
+.list-item {
+	display: flex;
+	justify-content: space-between;
+	padding-left: 25px;
+	line-height: 60px;
+	background-color: #fff;
+	border-bottom: 1px solid #ddddd9;
+}
+
+.list-item::before {
+	content: '';
+	border-left: 1px solid #f9d9d4;
+}
+
+.list-item_content {
+	font-size: 24px;
+	padding-left: 24px;
+	cursor: pointer;
+	color: #363434b2;
+}
+
+.list-item_content:first-child {
+    min-width: 350px;
+}
+
+.buttons{
+	display: flex;
+	min-width: 45px;
+	justify-content: space-between;
+	align-items: center;
+	padding-right: 25px;
+}
+
+.important {
+	color: #f95959ab;
+}
+
+.done {
+	text-decoration: line-through;
+	text-decoration-color: red;
+}
+
+.del {
+	display: inline-block;
+	height: 22px;
+	width: 17px;
+	background-color: inherit;
+	background-image: url('./icons8-delete-48.png');
+	background-position: -6px 0;
+    background-repeat: no-repeat;
+    background-size: 25px;
+	border: none;
+	cursor: pointer;
+}
+
+.imp {
+	display: inline-block;
+	height: 22px;
+	width: 18px;
+	background-color: inherit;
+	background-image: url('./icons8-important-book-50.png');
+	background-position: -4px -2px;
+    background-repeat: no-repeat;
+	background-size: 26px;
+	padding-right: 3px;
+	border: none;
+	cursor: pointer;
+}
+
+.imp_true {
+	background-color: #f35c5cd3;
+}
