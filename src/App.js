@@ -84,7 +84,6 @@ export default class App extends Component {
       const items = this.toggleBool(list , id, 'done');
       return { list: items }
     });
-    console.log(this.state.list);
   }
 
   listSearchValue = (e) => {
