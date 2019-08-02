@@ -11,11 +11,11 @@ const TodoItem = ({ id, content, important, done, listDelete, listImportant, lis
 
 	return (
 		<li className='list-item' key={id}>
-				<span className={ClassNames} onClick={() => listDone(id, done) } tabIndex='0'>{content}</span>
-				<div className='buttons'>
-					<button className={imp} onClick={() => listImportant(id, important) }></button>
-					<button className='del' onClick={() => listDelete(id) }></button>
-				</div>
+			<span className={ClassNames} onClick={() => listDone(id, done) } tabIndex='0'>{content}</span>
+			<div className='buttons'>
+				<button className={imp} onClick={() => listImportant(id, important) }></button>
+				<button className='del' onClick={() => listDelete(id) }></button>
+			</div>
 		</li>
 	);
 	

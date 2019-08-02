@@ -14,7 +14,7 @@ export default class App extends Component {
       {content: 'bye car', id:4, important: true, done: false},
       {content: 'drink some coffee ', id:5, important: false, done: false}
     ],
-    search: ''
+    searchValue: ''
   }
 
   listValue = (e) => {
@@ -73,14 +73,14 @@ export default class App extends Component {
   }
 
   listImportant = (id) => {
-    this.setState(({list})=>{
+    this.setState(({ list })=>{
       const items = this.toggleBool(list , id, 'important');
       return { list: items }
     });
   }
 
   listDone = (id) => {
-    this.setState(({list})=>{
+    this.setState(({ list })=>{
       const items = this.toggleBool(list , id, 'done');
       return { list: items }
     });
@@ -88,28 +88,29 @@ export default class App extends Component {
 
   listSearchValue = (e) => {
     this.setState({
-      search:  e.target.value
+      searchValue:  e.target.value
     })
   }
 
-  listSearch = (list, search) => {
-    if( search.length === 0){
+  listSearch = (list, searchValue) => {
+    if( searchValue.length === 0){
       return list
     }
 
     return list.filter((item) => {
-      return item.content.toLowerCase().indexOf(search.toLowerCase()) > -1;
+      return item.content.toLowerCase().indexOf(searchValue.toLowerCase()) > -1;
     });
   }
 
   render(){
     const { listValue, listSubmit, listDelete, listImportant, listDone, listSearchValue, listSearch } = this;
-    const { list, listAddingValue, search } = this.state;
-    const doneCount = list.filter(el => el.done).length
-    const visibleLists = listSearch(list,search);
+    const { list, listAddingValue, searchValue } = this.state;
+    const doneCount = list.filter(el => el.done).length;
+    const importantCount = list.filter(el => el.important).length;
+    const visibleLists = listSearch(list, searchValue);
     return (
       <div className="App">
-        <Search listSearchValue={listSearchValue} count={list.length} doneCount={doneCount}/>
+        <Search listSearchValue={listSearchValue} totalCount={list.length} doneCount={doneCount} importantCount={importantCount}/>
         <TodoList list={visibleLists} listDelete={listDelete} listImportant={listImportant} listDone={listDone}/>
         <AddList listValue={listValue} listSubmit={listSubmit} listAddingValue={listAddingValue}/>
       </div>
